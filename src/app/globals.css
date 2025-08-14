@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --rise-gradient: -webkit-linear-gradient(120deg, #7967e5 0%, #ffa0f2 50%, #ffc393 100%);
+  --rise-purple: #7967e5;
+  --rise-pink: #ffa0f2;
+  --rise-peach: #ffc393;
+  --rise-card: #0f0f14;
+  --rise-muted: #9aa0a6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-rise-purple: var(--rise-purple);
+  --color-rise-pink: var(--rise-pink);
+  --color-rise-peach: var(--rise-peach);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.rise-gradient-text {
+  background: var(--rise-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-surface {
+  background: radial-gradient(1200px 400px at 80% -10%, rgba(121, 103, 229, 0.15), transparent 40%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,87 @@
+.pkFrame {
+  --role-color: #7967e5;
+  padding: 2px;
+  border-radius: 16px;
+  background: linear-gradient(
+    120deg,
+    var(--role-color) 0%,
+    color-mix(in oklab, var(--role-color) 60%, white 40%) 50%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  position: relative;
+  isolation: isolate;
+}
+
+.pkBody {
+  position: relative;
+  border-radius: 14px;
+  background:
+    radial-gradient(800px 260px at 80% -10%, color-mix(in oklab, var(--role-color) 55%, transparent) 0%, transparent 50%),
+    radial-gradient(900px 400px at -10% 120%, color-mix(in oklab, var(--role-color) 32%, transparent) 0%, transparent 55%),
+    linear-gradient(140deg, color-mix(in oklab, var(--role-color) 38%, #0a0a12) 0%, rgba(8,8,12,1) 62%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 8px, rgba(0,0,0,0.02) 8px 16px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35) inset, 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.pkBody::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(0,0,0,0.28), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.06) 35%, transparent);
+}
+
+/* Ambient colored glow around the card based on role color */
+.pkFrame::after {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  border-radius: 24px;
+  z-index: -1;
+  background:
+    radial-gradient(120% 80% at 60% 0%, color-mix(in oklab, var(--role-color) 28%, transparent) 0%, transparent 70%),
+    radial-gradient(100% 70% at 0% 100%, color-mix(in oklab, var(--role-color) 18%, transparent) 0%, transparent 70%);
+  filter: blur(26px);
+  opacity: 0.9;
+}
+
+.pkName {
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  color: white;
+  text-shadow: 0 3px 14px rgba(0,0,0,0.6), 0 1px 0 rgba(0,0,0,0.4);
+}
+
+.pkMove {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--role-color) 20%, white 80%);
+  color: color-mix(in oklab, var(--role-color) 80%, black 20%);
+  border: 1px solid color-mix(in oklab, var(--role-color) 60%, white 40%);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25) inset, 0 4px 16px rgba(0,0,0,0.25);
+}
+
+.pkMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.06));
+  pointer-events: none;
+}
+
+.badgePanel {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.18));
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px);
+}
