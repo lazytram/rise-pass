@@ -4,23 +4,21 @@ import { useMemo, useState } from "react";
 import { RISE_ROLES, type RiseRole } from "../../data/roles";
 import PassportCard from "./PassportCard";
 import RoleForm from "./RoleForm";
-import Button from "../ui/Button";
-import TwitterShareButton from "../TwitterShareButton";
+import ActionBar from "./ActionBar";
+import { buildTweet } from "../../lib/tweet";
 
-type BuilderState = "select" | "reveal";
+export enum BuilderState {
+  Select = "select",
+  Reveal = "reveal",
+}
 
 export default function PassportBuilder() {
-  const [state, setState] = useState<BuilderState>("select");
+  const [state, setState] = useState<BuilderState>(BuilderState.Select);
   const [selected, setSelected] = useState<RiseRole>(RISE_ROLES[0]);
-  const [secondaryKeys, setSecondaryKeys] = useState<string[]>(
-    RISE_ROLES.filter((r) => r.key !== RISE_ROLES[0].key).map((r) => r.key)
-  );
+  const [secondaryKeys, setSecondaryKeys] = useState<string[]>([]);
+  const [displayName, setDisplayName] = useState<string>("RISE User");
 
-  const tweet = useMemo(
-    () =>
-      `My #RISE Passport ✨\nPrimary role: ${selected.name}\nJoin us and build on RISE!`,
-    [selected]
-  );
+  const tweet = useMemo(() => buildTweet(selected.name), [selected]);
 
   const secondaryRoles = useMemo(
     () =>
@@ -30,46 +28,46 @@ export default function PassportBuilder() {
     [selected, secondaryKeys]
   );
 
+  const isGenerateDisabled = secondaryKeys.length === 0;
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("passport:setName", (e: Event) => {
+      const custom = e as CustomEvent<string>;
+      setDisplayName(custom.detail || "RISE User");
+    });
+  }
+
   return (
-    <div className="grid md:grid-cols-2 gap-6 items-start">
-      {state === "select" ? (
-        <>
+    <div className="w-full flex flex-col items-center gap-6">
+      {state === BuilderState.Select ? (
+        <div className="w-full flex flex-col items-center text-center gap-6">
           <RoleForm
             selected={selected}
             setSelected={setSelected}
             secondaryKeys={secondaryKeys}
             setSecondaryKeys={setSecondaryKeys}
           />
-          <div className="max-w-md">
-            <PassportCard
-              username="RISE User"
-              avatarUrl="/solgaleo.png"
-              roleName={selected.name}
-              roleDescription={selected.description}
-              color={selected.color}
-              secondaryRoles={secondaryRoles}
-            />
-            <div className="mt-4 flex gap-3">
-              <Button onClick={() => setState("reveal")}>Reveal</Button>
-            </div>
-          </div>
-        </>
+          <ActionBar
+            mode={BuilderState.Select}
+            onGenerate={() => setState(BuilderState.Reveal)}
+            disabledGenerate={isGenerateDisabled}
+          />
+        </div>
       ) : (
-        <div className="md:col-span-2 flex flex-col md:flex-row items-start gap-6">
+        <div className="w-full flex flex-col items-center gap-6">
           <PassportCard
-            username="RISE User"
-            avatarUrl="/solgaleo.png"
+            username={displayName}
+            avatarUrl=""
             roleName={selected.name}
             roleDescription={selected.description}
             color={selected.color}
             secondaryRoles={secondaryRoles}
           />
-          <div className="flex gap-3">
-            <TwitterShareButton text={tweet} hashtags={["RISE", "Gigagas"]} />
-            <Button variant="secondary" onClick={() => setState("select")}>
-              Redo
-            </Button>
-          </div>
+          <ActionBar
+            mode={BuilderState.Reveal}
+            onRedo={() => setState(BuilderState.Select)}
+            tweet={tweet}
+          />
         </div>
       )}
     </div>

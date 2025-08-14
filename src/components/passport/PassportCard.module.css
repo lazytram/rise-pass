@@ -12,6 +12,12 @@
   isolation: isolate;
 }
 
+/* Fixed size for consistent rendering */
+.pkFixedSize {
+  width: 360px;
+  height: 560px;
+}
+
 .pkBody {
   position: relative;
   border-radius: 14px;

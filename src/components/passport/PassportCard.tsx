@@ -24,8 +24,11 @@ export default function PassportCard({
   secondaryRoles = [],
 }: Props) {
   return (
-    <div className={styles.pkFrame} style={{ ["--role-color" as unknown as string]: color }}>
-      <div className={`${styles.pkBody} p-4`}>
+    <div
+      className={`${styles.pkFrame} ${styles.pkFixedSize}`}
+      style={{ ["--role-color" as unknown as string]: color }}
+    >
+      <div className={`${styles.pkBody} p-4 h-full flex flex-col`}>
         <div className="flex items-center justify-between">
           <div className={`${styles.pkName} text-lg`}>{username}</div>
         </div>
@@ -34,16 +37,27 @@ export default function PassportCard({
           className={`${styles.pkMedia} relative mt-3 h-56 w-full rounded-xl overflow-hidden border border-black/30`}
         >
           <Image
-            src={avatarUrl || "/solgaleo.png"}
-            alt={username}
+            src="/banner.png"
+            alt="Banner"
             fill
-            sizes="384px"
+            sizes="350px"
             className="object-cover"
           />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="rounded-full border border-white/20 shadow-md">
+              <Image
+                src={avatarUrl || "/avatar-placeholder.svg"}
+                alt={username}
+                width={100}
+                height={100}
+                className="object-cover"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-5">
-          <div className={styles.pkMove}>{roleName} GX</div>
+          <div className={styles.pkMove}>{roleName}</div>
           {roleDescription ? (
             <p className="text-white/85 text-base mt-3 leading-relaxed">
               {roleDescription}
@@ -52,7 +66,7 @@ export default function PassportCard({
         </div>
 
         {secondaryRoles.length ? (
-          <div className={`${styles.badgePanel} flex flex-wrap gap-2`}>
+          <div className={`${styles.badgePanel} mt-auto flex flex-wrap gap-2`}>
             {secondaryRoles.map((r) => (
               <RoleBadge key={r.name} roleName={r.name} color={r.color} />
             ))}
