@@ -1,67 +1,129 @@
-export type RiseRole = {
-  key: string;
+export type Role = {
+  id: string;
   name: string;
   color: string;
+  priority: number;
   description: string;
 };
 
-export const RISE_ROLES: RiseRole[] = [
+export const DISCORD_ROLE_MAP: Array<Role> = [
   {
-    key: "noob",
+    id: "1244656709251629106",
     name: "Noob",
     color: "#ff3df5",
-    description: "New to RISE, ready to level up.",
+    priority: 1,
+    description: "Just sprouted. Water me with good alpha 🌱",
   },
   {
-    key: "rice",
+    id: "1254025872630091797",
     name: "Rice",
-    color: "#ffd400",
-    description:
-      "Level 3 unlocked: access to share-on-twitter & hat-pfp. Let’s flood X with RISE.",
+    color: "#f1c40f",
+    priority: 2,
+    description: "Steamed, seasoned, and ready to rise 🍚",
   },
   {
-    key: "rice-contributor",
+    id: "1281173780600983552",
     name: "Rice Contributor",
     color: "#ff8c3a",
-    description: "RISE Chain dev. We ship for the ecosystem.",
+    priority: 3,
+    description: "Lines of code = grains of rice. You’re feeding the chain 🧑‍💻",
   },
   {
-    key: "shredded",
+    id: "1371741508906254376",
     name: "SHREDDED",
-    color: "#8f6aff",
-    description:
-      "Wear the RISE Hat in your PFP. Brand kit on, identity on‑point.",
+    color: "#9b59b6",
+    priority: 4,
+    description: "Wears the RISE hat like a samurai wears armor 🧢⚔️",
   },
   {
-    key: "initiate",
+    id: "1288877799569883250",
     name: "initiate",
     color: "#ff6b4a",
-    description:
-      "Own the first RISE Chain NFT on Ethereum. Ownership verified via Guild.",
+    priority: 5,
+    description: "First to mint, first to rise. OG of the chain 🔗",
   },
   {
-    key: "rise-celeb",
+    id: "1383352993201782804",
+    name: "RISE Racer",
+    color: "#992d22",
+    priority: 6,
+    description: "Racing to the top of the chain 🚗🏁",
+  },
+  {
+    id: "1298214534816993301",
+    name: "Thaiji's ladyboy",
+    color: "#9b59b6",
+    priority: 7,
+    description: "Thaiji's ladyboy 💅",
+  },
+  {
+    id: "1327136898090664017",
     name: "RISE celeb",
     color: "#2ad398",
-    description: "Weekly Community MVP. Monster engagement — you shine.",
+    priority: 6,
+    description: "Too famous for Discord. Yet here you are, blessing us 👑",
   },
   {
-    key: "ambassador",
+    id: "1353966994394710089",
     name: "Ambassador",
-    color: "#ff9a66",
-    description: "Local ambassador: you organize, connect, and grow RISE.",
+    color: "#f8d184",
+    priority: 7,
+    description: "Spreading RICE wisdom from Tokyo to Timbuktu 🌍🍥",
   },
   {
-    key: "risu",
+    id: "1362428482117832888",
+    name: "Ambassador II",
+    color: "#ecb56b",
+    priority: 8,
+    description: "S-class emissary of the Rise dojo. Fluent in all dialects 🧭",
+  },
+  {
+    id: "1244633693780312174",
     name: "Risu",
-    color: "#2ecc71",
+    color: "#5fe192",
+    priority: 9,
     description:
-      "Community pillar: AMAs, content, initiatives, positive vibes.",
+      "Guardian of the Grain. Your community karma is overflowing 🧘‍♂️🌾",
   },
   {
-    key: "san",
+    id: "1266213843361595404",
     name: "San",
-    color: "#7e57c2",
-    description: "Risu San: the elite of the community. Period.",
+    color: "#a0b6ff",
+    priority: 10,
+    description:
+      "Legend of the RICE temple. You’ve reached inner-chain peace 🏯",
+  },
+  {
+    id: "1324244561731649567",
+    name: "Content Creator",
+    color: "#208b4c",
+    priority: 6,
+    description: "Crafting pixels, pumping vibes, farming retweets 🎨🌀",
+  },
+];
+
+export const RISE_SPECIAL_ROLES: Array<Role> = [
+  {
+    id: "1300862822514819224",
+    name: "Community Moderator",
+    color: "#ff8fc4",
+    priority: 90,
+    description: "Moderating the Rise Community. Keeping the peace.",
+  },
+  {
+    id: "1400761591347154984",
+    name: "Builder",
+    color: "#e74b3c",
+    priority: 90,
+    description:
+      "You don’t just follow the chain — you forge it. Architects of RISE, one block at a time 🔧🚀",
+  },
+  {
+    id: "1327257021480828958",
+    name: "Core Team",
+    color: "#f0bdef",
+    priority: 100,
+    description:
+      "The minds behind RiseChain — visionaries turning ideas into code, and code into the future 🧠✨",
   },
 ];
