@@ -1,7 +1,8 @@
-// Map Discord role IDs to app roles (names/colors) by priority
-// Fill these IDs with your actual Discord role IDs
-
-import { DISCORD_ROLE_MAP, RISE_SPECIAL_ROLES, type Role } from "@/data/roles";
+import {
+  DISCORD_ROLE_MAP,
+  RISE_APP_BUILDER_ROLES,
+  RISE_SPECIAL_ROLES,
+} from "@/data/roles";
 
 export type MappedRoles = {
   primary: { name: string; color: string; description: string } | null;
@@ -9,9 +10,9 @@ export type MappedRoles = {
 };
 
 export function mapDiscordRoles(roleIds: string[]): MappedRoles {
-  const hits = DISCORD_ROLE_MAP.concat(RISE_SPECIAL_ROLES).filter((r) =>
-    roleIds.includes(r.id)
-  );
+  const hits = DISCORD_ROLE_MAP.concat(RISE_SPECIAL_ROLES)
+    .concat(RISE_APP_BUILDER_ROLES)
+    .filter((r) => roleIds.includes(r.id));
   if (hits.length === 0) {
     return { primary: null, secondary: [] };
   }

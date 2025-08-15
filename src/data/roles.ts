@@ -100,6 +100,13 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     priority: 6,
     description: "Crafting pixels, pumping vibes, farming retweets 🎨🌀",
   },
+  {
+    id: "1291308118914895924",
+    name: "Rise Dish",
+    color: "#23c187",
+    priority: 8,
+    description: "Dishes out the RISE",
+  },
 ];
 
 export const RISE_SPECIAL_ROLES: Array<Role> = [
@@ -125,5 +132,22 @@ export const RISE_SPECIAL_ROLES: Array<Role> = [
     priority: 100,
     description:
       "The minds behind RiseChain — visionaries turning ideas into code, and code into the future 🧠✨",
+  },
+];
+
+export const RISE_APP_BUILDER_ROLES: Array<Role> = [
+  {
+    id: "1360090418741514331",
+    name: "For The kingdom",
+    color: "#fbdb47",
+    priority: 99,
+    description: "For the kingdom of RISE",
+  },
+  {
+    id: "1360092748715131074",
+    name: "GasPump",
+    color: "#f14d1c",
+    priority: 99,
+    description: "Fueling the RISE chain",
   },
 ];
