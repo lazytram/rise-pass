@@ -29,6 +29,13 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     description: "Lines of code = grains of rice. You’re feeding the chain 🧑‍💻",
   },
   {
+    id: "1388002016009388062",
+    name: "Giga Artist",
+    color: "#dfb4af",
+    priority: 4,
+    description: "Drawing like a Giga Chad 🎨",
+  },
+  {
     id: "1371741508906254376",
     name: "SHREDDED",
     color: "#9b59b6",
@@ -107,6 +114,13 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     priority: 8,
     description: "Dishes out the RISE",
   },
+  {
+    id: "1341763629875204217",
+    name: "Poker Champ",
+    color: "#fbdb27",
+    priority: 99,
+    description: "Poker is life",
+  },
 ];
 
 export const RISE_SPECIAL_ROLES: Array<Role> = [
@@ -149,5 +163,20 @@ export const RISE_APP_BUILDER_ROLES: Array<Role> = [
     color: "#f14d1c",
     priority: 99,
     description: "Fueling the RISE chain",
+  },
+  {
+    id: "1365700437927526412",
+    name: "VeloxR",
+    color: "#9b59b6",
+    priority: 99,
+    description:
+      "NFTs without the lag — thanks to RiseChain, the blockchain built for speed.",
+  },
+  {
+    id: "1361348485865017364",
+    name: "NitroDeX",
+    color: "#3498db",
+    priority: 99,
+    description: "The fastest DEX alive",
   },
 ];
