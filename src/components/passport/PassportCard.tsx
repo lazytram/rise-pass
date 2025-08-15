@@ -15,6 +15,7 @@ type Props = {
   }>;
 };
 
+const MAX_SECONDARY_ROLES = 8;
 export default function PassportCard({
   username,
   avatarUrl,
@@ -29,8 +30,16 @@ export default function PassportCard({
       style={{ ["--role-color" as unknown as string]: color }}
     >
       <div className={`${styles.pkBody} p-4 h-full flex flex-col`}>
-        <div className="flex items-center justify-between">
+        <div className={styles.pkTopBar}>
           <div className={`${styles.pkName} text-lg`}>{username}</div>
+          <Image
+            src="/logo-white.svg"
+            alt="RISE"
+            width={28}
+            height={28}
+            className="opacity-90"
+            priority
+          />
         </div>
 
         <div
@@ -42,24 +51,30 @@ export default function PassportCard({
             fill
             sizes="350px"
             className="object-cover"
+            priority
           />
+
+          <div className={styles.pkHolo} />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="rounded-full border border-white/20 shadow-md">
+            <div className={styles.pkAvatarWrap}>
               <Image
                 src={avatarUrl || "/avatar-placeholder.svg"}
                 alt={username}
                 width={100}
                 height={100}
-                className="object-cover"
+                className="object-cover rounded-full"
+                crossOrigin="anonymous"
               />
             </div>
           </div>
         </div>
 
-        <div className="mt-5">
+        <div className="mt-5 relative flex flex-col items-center">
           <div className={styles.pkMove}>{roleName}</div>
           {roleDescription ? (
-            <p className="text-white/85 text-base mt-3 leading-relaxed">
+            <p
+              className={`${styles.pkDescription} mt-3 text-center max-w-[90%]`}
+            >
               {roleDescription}
             </p>
           ) : null}
@@ -67,9 +82,14 @@ export default function PassportCard({
 
         {secondaryRoles.length ? (
           <div className={`${styles.badgePanel} mt-auto flex flex-wrap gap-2`}>
-            {secondaryRoles.map((r) => (
+            {(secondaryRoles.slice(0, MAX_SECONDARY_ROLES) || []).map((r) => (
               <RoleBadge key={r.name} roleName={r.name} color={r.color} />
             ))}
+            {secondaryRoles.length > MAX_SECONDARY_ROLES ? (
+              <span className="inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-white/90 bg-white/10 border border-white/15">
+                + {secondaryRoles.length - MAX_SECONDARY_ROLES}
+              </span>
+            ) : null}
           </div>
         ) : null}
       </div>

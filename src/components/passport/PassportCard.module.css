@@ -2,14 +2,15 @@
   --role-color: #7967e5;
   padding: 2px;
   border-radius: 16px;
-  background: linear-gradient(
-    120deg,
-    var(--role-color) 0%,
-    color-mix(in oklab, var(--role-color) 60%, white 40%) 50%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
+  background:
+    radial-gradient(120% 100% at 0% 0%, color-mix(in oklab, var(--role-color) 45%, rgba(255,255,255,0.15)) 0%, transparent 60%),
+    linear-gradient(120deg, var(--role-color), color-mix(in oklab, var(--role-color) 55%, white 45%) 55%, rgba(255,255,255,0.18));
   position: relative;
   isolation: isolate;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 10px 34px rgba(0,0,0,0.45),
+    0 0 42px color-mix(in oklab, var(--role-color) 20%, transparent);
 }
 
 /* Fixed size for consistent rendering */
@@ -29,6 +30,19 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.35) inset, 0 1px 0 rgba(255,255,255,0.05);
 }
 
+.pkTopBar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--role-color) 25%, rgba(255,255,255,0.12)) 0%, rgba(0,0,0,0.25) 100%);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.05);
+}
+
+
 .pkBody::before {
   content: "";
   position: absolute;
@@ -38,6 +52,16 @@
   background:
     radial-gradient(120% 80% at 0% 0%, rgba(0,0,0,0.28), transparent 55%),
     linear-gradient(180deg, rgba(0,0,0,0.14), rgba(0,0,0,0.06) 35%, transparent);
+}
+
+.pkBody::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  mix-blend-mode: soft-light;
 }
 
 /* Ambient colored glow around the card based on role color */
@@ -57,21 +81,53 @@
 .pkName {
   font-weight: 900;
   letter-spacing: 0.2px;
-  color: white;
-  text-shadow: 0 3px 14px rgba(0,0,0,0.6), 0 1px 0 rgba(0,0,0,0.4);
+  color: #ffffff !important;
+
 }
 
 .pkMove {
+  position: relative;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+  color: color-mix(in oklab, var(--role-color) 24%, white 76%);
+  border: 1.5px solid color-mix(in oklab, var(--role-color) 55%, white 35%);
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.25),
+    0 0 22px color-mix(in oklab, var(--role-color) 30%, transparent);
+  backdrop-filter: blur(8px);
+}
+
+.pkMove::before {
+  content: "";
   display: inline-block;
-  padding: 10px 14px;
-  border-radius: 12px;
-  background: color-mix(in oklab, var(--role-color) 20%, white 80%);
-  color: color-mix(in oklab, var(--role-color) 80%, black 20%);
-  border: 1px solid color-mix(in oklab, var(--role-color) 60%, white 40%);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25) inset, 0 4px 16px rgba(0,0,0,0.25);
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--role-color) 80%, white 20%);
+  box-shadow: 0 0 10px color-mix(in oklab, var(--role-color) 60%, transparent);
+  margin-right: 10px;
+}
+
+.pkMove::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.25), transparent 35%);
+  mix-blend-mode: screen;
+}
+
+.pkMedia {
+  border: 1px solid color-mix(in oklab, var(--role-color) 35%, white 65%);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.35);
 }
 
 .pkMedia::after {
@@ -82,6 +138,66 @@
   pointer-events: none;
 }
 
+/* Subtle holo foil overlay */
+.pkHolo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0.35;
+  background: conic-gradient(
+      from 0deg at 50% 50%,
+      rgba(255, 0, 153, 0.25),
+      rgba(255, 255, 0, 0.25),
+      rgba(0, 255, 153, 0.25),
+      rgba(0, 170, 255, 0.25),
+      rgba(170, 0, 255, 0.25),
+      rgba(255, 0, 153, 0.25)
+    );
+  animation: holoShift 12s linear infinite;
+}
+
+@keyframes holoShift {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.pkAvatarWrap {
+  border-radius: 9999px;
+  border: 4px solid color-mix(in oklab, var(--role-color) 75%, white 25%);
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+  box-shadow:
+    0 8px 22px rgba(0,0,0,0.45),
+    0 0 26px color-mix(in oklab, var(--role-color) 45%, transparent);
+}
+
+.pkAvatarWrap::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 180deg,
+    color-mix(in oklab, var(--role-color) 65%, white 35%),
+    transparent 25%,
+    color-mix(in oklab, var(--role-color) 35%, white 65%) 45%,
+    transparent 65%,
+    color-mix(in oklab, var(--role-color) 75%, white 25%) 85%,
+    transparent 100%
+  );
+  filter: blur(8px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.pkDescription {
+  color: rgba(255,255,255,0.88);
+  font-size: 1rem;
+  line-height: 1.75rem;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.28);
+}
+
 .badgePanel {
   margin-top: 14px;
   padding: 12px;
@@ -90,4 +206,30 @@
     linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.18));
   border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(6px);
+}
+
+.badgePanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  pointer-events: none;
+  border: 1px solid rgba(0,0,0,0.35);
+  mix-blend-mode: overlay;
+}
+
+/* Pokemon-like cartouche in top-left of media */
+.pkCartouche {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(0,0,0,0.25));
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset, 0 1px 0 rgba(255,255,255,0.05);
 }

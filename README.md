@@ -7,7 +7,7 @@ Small Next.js app to generate a Pokémon‑style Passport card and share it on X
 1. Start the dev server
 
 ```
-pnpm dev
+npm dev
 ```
 
 ## Credits
