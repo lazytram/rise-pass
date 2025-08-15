@@ -62,10 +62,7 @@ export default async function RevealPage() {
                 secondaryRoles={mapped.secondary}
               />
             </div>
-            <ShareExportBar
-              targetId="passport-card"
-              tweetText={buildTweet(mapped.primary.name)}
-            />
+            <ShareExportBar targetId="passport-card" tweetText={buildTweet()} />
           </>
         ) : (
           <div className="text-white/70 text-center">
