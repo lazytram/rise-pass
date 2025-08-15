@@ -74,14 +74,14 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     id: "1353966994394710089",
     name: "Ambassador",
     color: "#f8d184",
-    priority: 7,
+    priority: 14,
     description: "Spreading RICE wisdom from Tokyo to Timbuktu 🌍🍥",
   },
   {
     id: "1362428482117832888",
     name: "Ambassador II",
     color: "#ecb56b",
-    priority: 8,
+    priority: 13,
     description: "S-class emissary of the Rise dojo. Fluent in all dialects 🧭",
   },
   {
@@ -111,7 +111,7 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     id: "1291308118914895924",
     name: "Rise Dish",
     color: "#23c187",
-    priority: 8,
+    priority: 15,
     description: "Dishes out the RISE",
   },
   {
