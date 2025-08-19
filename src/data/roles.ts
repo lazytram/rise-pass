@@ -17,7 +17,7 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
   {
     id: "1254025872630091797",
     name: "Rice",
-    color: "#f1c40f",
+    color: "#f39c12",
     priority: 2,
     description: "Steamed, seasoned, and ready to rise 🍚",
   },
@@ -26,7 +26,7 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     name: "Rice Contributor",
     color: "#ff8c3a",
     priority: 4,
-    description: "Lines of code = grains of rice. You’re feeding the chain 🧑‍💻",
+    description: "Lines of code = grains of rice. You're feeding the chain 🧑‍💻",
   },
   {
     id: "1388002016009388062",
@@ -98,7 +98,7 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     color: "#a0b6ff",
     priority: 11,
     description:
-      "Legend of the RICE temple. You’ve reached inner-chain peace 🏯",
+      "Legend of the RICE temple. You've reached inner-chain peace 🏯",
   },
   {
     id: "1324244561731649567",
@@ -137,7 +137,7 @@ export const RISE_SPECIAL_ROLES: Array<Role> = [
     color: "#e74b3c",
     priority: 90,
     description:
-      "You don’t just follow the chain — you forge it. Architects of RISE, one block at a time 🔧🚀",
+      "You don't just follow the chain — you forge it. Architects of RISE, one block at a time 🔧🚀",
   },
   {
     id: "1327257021480828958",

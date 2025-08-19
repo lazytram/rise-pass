@@ -1,4 +1,105 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up-large {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-in-up-large {
+  animation: fade-in-up-large 0.8s ease-out both;
+}
+
+.animate-fade-in-up-delay-200 {
+  animation: fade-in-up-large 0.8s ease-out 0.2s both;
+}
+
+.animate-fade-in-up-delay-400 {
+  animation: fade-in-up-large 0.8s ease-out 0.4s both;
+}
+
+.animate-fade-in-up-delay-600 {
+  animation: fade-in-up-large 0.8s ease-out 0.6s both;
+}
+
+/* Enhanced color utilities for more vibrant colors */
+.bg-gradient-vibrant {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.bg-gradient-vibrant-purple {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+
+.bg-gradient-vibrant-pink {
+  background: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
+}
+
+.bg-gradient-vibrant-orange {
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+}
+
+.text-gradient-vibrant {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced role colors */
+.role-content-creator {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.role-shredded {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+}
+
+.role-rice {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.role-noob {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
 
 :root {
   --background: #ffffff;
