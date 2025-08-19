@@ -3,11 +3,11 @@ import { GradientText } from "../../../shared/components";
 export default function HeroTitle() {
   return (
     <div className="space-y-6 text-center">
-      <div className="space-y-4">
-        <h1 className="text-6xl md:text-8xl font-black leading-tight tracking-tight">
+      <div className="space-y-4 px-2">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-black leading-tight tracking-tight">
           <GradientText>RISE Passport</GradientText>
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 font-light max-w-3xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-xl md:text-2xl text-white/90 font-light max-w-[22rem] sm:max-w-3xl mx-auto leading-relaxed">
           Your digital passport on the fastest blockchain built for speed
         </p>
       </div>

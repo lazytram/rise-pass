@@ -93,7 +93,7 @@ export default function MintFlowContainer({
 
   // Show minting flow (default case)
   return (
-    <div className="max-w-5xl mx-auto space-y-16">
+    <div className="max-w-5xl mx-auto space-y-10 sm:space-y-16 px-2 sm:px-0">
       {/* Process Steps */}
       <div className="animate-fade-in-up-large">
         <MintProcessSteps />

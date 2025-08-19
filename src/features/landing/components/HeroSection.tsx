@@ -12,15 +12,15 @@ export default function HeroSection() {
 
   return (
     <>
-      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative min-h-[76vh] md:min-h-screen flex items-center justify-center overflow-visible md:overflow-hidden">
+        <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 text-center">
           {/* Main Content */}
           <div className="space-y-12">
             <HeroTitle />
 
             {/* Description */}
-            <div className="max-w-4xl mx-auto space-y-8">
-              <p className="text-lg text-white/70 leading-relaxed">
+            <div className="max-w-2xl sm:max-w-4xl mx-auto space-y-6 sm:space-y-8 px-1">
+              <p className="text-sm sm:text-lg text-white/70 leading-relaxed">
                 Connect your Discord account to verify your community role, then
                 link your EVM wallet to mint your personalized RISE Passport
                 NFT. Your Discord role becomes a permanent, verifiable digital
@@ -45,14 +45,14 @@ export default function HeroSection() {
               )}
 
               {/* Learn More Button */}
-              <div className="flex justify-center">
+              <div className="flex justify-center px-2">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="group inline-flex items-center justify-center px-6 py-3 text-base font-semibold text-white/80 hover:text-white bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 rounded-xl border border-white/20 hover:border-white/30 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                  className="group inline-flex items-center justify-center px-5 py-3 text-sm sm:text-base font-semibold text-white/80 hover:text-white bg-gradient-to-r from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 rounded-xl border border-white/20 hover:border-white/30 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 cursor-pointer"
                 >
                   <span className="mr-2">Learn More</span>
                   <svg
-                    className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
+                    className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
