@@ -55,7 +55,7 @@ export default function Toast({
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              d="M5 13l4 4L19 7"
             />
           </svg>
         );
@@ -71,7 +71,7 @@ export default function Toast({
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              d="M6 18L18 6M6 6l12 12"
             />
           </svg>
         );
@@ -91,6 +91,8 @@ export default function Toast({
             />
           </svg>
         );
+      default:
+        return null;
     }
   };
 
@@ -101,18 +103,20 @@ export default function Toast({
       }`}
     >
       <div
-        className={`flex items-center space-x-3 px-4 py-3 rounded-xl border backdrop-blur-xl shadow-2xl ${getToastStyles()}`}
+        className={`flex items-start space-x-3 px-4 py-3 rounded-xl border backdrop-blur-xl shadow-2xl w-full md:max-w-sm ${getToastStyles()}`}
       >
-        <div className="flex-shrink-0">{getIcon()}</div>
+        <div className="flex-shrink-0 mt-0.5">{getIcon()}</div>
 
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium">{message}</p>
+          <p className="text-sm font-medium break-words whitespace-pre-wrap">
+            {message}
+          </p>
           {txHash && (
             <a
               href={`https://explorer.risechain.com/tx/${txHash}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs underline hover:no-underline transition-all duration-200 mt-1 inline-block"
+              className="text-xs underline hover:no-underline transition-all duration-200 mt-1 inline-block break-all"
             >
               View Transaction →
             </a>
@@ -124,7 +128,7 @@ export default function Toast({
             setIsVisible(false);
             setTimeout(onClose, 300);
           }}
-          className="flex-shrink-0 text-current/70 hover:text-current transition-colors duration-200"
+          className="flex-shrink-0 text-current/70 hover:text-current transition-colors duration-200 mt-0.5"
         >
           <svg
             className="w-4 h-4"

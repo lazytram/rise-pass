@@ -7,10 +7,11 @@ export default function ToastContainer() {
   const { toasts, removeToast } = useToastContext();
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 space-y-2">
+    <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 z-[9999] space-y-2 pointer-events-none">
       {toasts.map((toast, index) => (
         <div
           key={toast.id}
+          className="pointer-events-auto"
           style={{
             transform: `translateY(${-index * 80}px)`,
           }}

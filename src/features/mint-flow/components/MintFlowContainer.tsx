@@ -9,7 +9,7 @@ import { WalletConnectionSection } from "../../wallet";
 import { useAccount } from "wagmi";
 import { usePassportExistence } from "../../../application/hooks/usePassportExistence";
 import { ExistingPassportView } from "../../passport-view";
-import { LoadingSpinner } from "../../ui";
+import { LoadingSpinner, LoadingState } from "../../ui";
 
 interface MintFlowContainerProps extends MintButtonProps {
   onMintSuccess?: (data: unknown) => void;
@@ -69,6 +69,11 @@ export default function MintFlowContainer({
         </div>
       </div>
     );
+  }
+
+  // General loading while checking existing passport status
+  if (isConnected && isChecking) {
+    return <LoadingState message="Checking your passport..." />;
   }
 
   // If we already minted, show the existing passport view

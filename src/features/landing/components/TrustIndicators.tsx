@@ -10,7 +10,7 @@ export default function TrustIndicators() {
         </div>
         <div className="flex items-center space-x-3 bg-gradient-to-r from-white/10 to-white/5 px-6 py-3 rounded-full backdrop-blur-xl border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105">
           <a
-            href="https://risechain.com"
+            href="https://portal.risechain.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"

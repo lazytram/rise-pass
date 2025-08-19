@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "RISE Passport",
   description:
-    "Create your RISE Passport to highlight your rice cooking skills",
+    "Start your journey across the RISE ecosystem on RiseChain — mint your RISE Passport",
 };
 
 export default function RootLayout({

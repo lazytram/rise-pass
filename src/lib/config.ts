@@ -4,9 +4,9 @@ export const CONFIG = {
   APP_NAME: "RISE Passport",
   NETWORKS: {
     RISE_TESTNET: {
-      id: riseTestnet.id, // Utiliser l'ID correct du testnet Rise
+      id: riseTestnet.id,
       name: "Rise Testnet",
-      rpcUrl: riseTestnet.rpcUrls.default.http[0], // Utiliser le même RPC que wagmi
+      rpcUrl: riseTestnet.rpcUrls.default.http[0],
       explorer: "https://explorer.testnet.riselabs.xyz",
     },
   },

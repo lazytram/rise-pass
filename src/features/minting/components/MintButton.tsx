@@ -110,7 +110,7 @@ export default function MintButton({
       const errorMessage =
         err instanceof Error ? err.message : "Minting failed";
       setError(errorMessage);
-      showError(`Minting failed: ${errorMessage}`);
+      showError("Minting failed");
     } finally {
       setIsMinting(false);
     }
@@ -126,23 +126,18 @@ export default function MintButton({
     </MintActionButton>
   );
 
-  if (noWrapper) {
-    return (
-      <div className="space-y-4">
-        {buttonContent}
-        {error && (
-          <StatusMessage type="error" title="Minting Failed" message={error} />
-        )}
-      </div>
-    );
-  }
+  const wrapperClass = noWrapper ? "space-y-4" : "max-w-md mx-auto space-y-6";
 
   return (
-    <div className="max-w-md mx-auto space-y-6">
+    <div className={wrapperClass}>
       {buttonContent}
-
       {error && (
-        <StatusMessage type="error" title="Minting Failed" message={error} />
+        <StatusMessage
+          type="error"
+          title="Minting Failed"
+          message={error}
+          maxHeight="max-h-48"
+        />
       )}
     </div>
   );

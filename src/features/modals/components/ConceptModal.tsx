@@ -134,24 +134,12 @@ export default function ConceptModal({ isOpen, onClose }: ConceptModalProps) {
           </section>
 
           <section>
-            <h3 className="text-xl font-semibold text-white mb-3">Benefits</h3>
-            <ul className="space-y-2 list-disc list-inside">
-              <li>Access to exclusive community features and channels</li>
-              <li>
-                Proof of your contributions and role in the RISE ecosystem
-              </li>
-              <li>Integration with future RISE applications and services</li>
-              <li>Permanent record of your community membership</li>
-            </ul>
-          </section>
-
-          <section>
             <h3 className="text-xl font-semibold text-white mb-3">
               Technical Details
             </h3>
             <div className="bg-white/5 rounded-lg p-4 space-y-2 text-sm">
               <p>
-                <strong>Blockchain:</strong> RISE Testnet
+                <strong>Blockchain:</strong> RISE
               </p>
               <p>
                 <strong>Standard:</strong> ERC-721 (Soulbound)
