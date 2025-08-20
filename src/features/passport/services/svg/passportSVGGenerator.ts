@@ -10,6 +10,30 @@ export function generatePassportSVG(passport: PassportData): string {
   const username = passport.username || "User";
   const badgesHTML = generateBadgesHTML(passport);
   const gradientDefinitions = generateGradientDefinitions(roleColor);
+  const primaryRoleName = passport.primaryRole?.roleName || "";
+
+  // Compute dynamic container width for the primary role label
+  // Approximate character width at font-size 12 with uppercase + slight letter-spacing
+  const approximateCharWidth = 7; // px per character (empirical approximation)
+  const horizontalPadding = 40; // left + right padding inside the container
+  const minRoleWidth = 140;
+  const maxRoleWidth = 240;
+  const computedRoleWidth = Math.max(
+    minRoleWidth,
+    Math.min(
+      maxRoleWidth,
+      primaryRoleName.length * approximateCharWidth + horizontalPadding
+    )
+  );
+
+  // Center container horizontally around x=180
+  const roleRectX = 180 - computedRoleWidth / 2;
+  const roleRectY = 300;
+  const roleRectHeight = 36;
+  const roleRectRadius = 16;
+  const leftDotCx = roleRectX + 22; // move slightly inward for better visibility
+  const leftDotCy = 318;
+  const leftDotRadius = 5;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="360" height="560" viewBox="0 0 360 560">
   <defs>
@@ -33,7 +57,7 @@ export function generatePassportSVG(passport: PassportData): string {
   <text x="22" y="40" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="white" letter-spacing="0.2">${username}</text>
 
   <!-- RISE Logo in top bar -->
-  <g transform="translate(310, 20) scale(0.11)">
+  <g transform="translate(310, 18) scale(0.11)">
     <path fill="#fff" d="M176.12.391H.5888v50.3245H176.12c13.848 0 25.076 11.2676 25.076 25.1628v25.1627H77.3556c-42.3973 0-76.7668 34.369-76.7668 76.767V302.34H50.741V184.002L177.663 302.334h73.697L89.4198 151.366H201.196v-50.08h50.164V75.8783C251.36 34.1876 217.664.391 176.12.391Z"/>
   </g>
 
@@ -48,15 +72,17 @@ export function generatePassportSVG(passport: PassportData): string {
   <circle cx="180" cy="176" r="52" fill="${roleColor}" opacity="0.1"/>
 
   <!-- RISE Logo -->
-  <g transform="translate(154, 150) scale(0.2)">
+  <g transform="translate(157, 147) scale(0.2)">
     <path fill="#fff" d="M176.12.391H.5888v50.3245H176.12c13.848 0 25.076 11.2676 25.076 25.1628v25.1627H77.3556c-42.3973 0-76.7668 34.369-76.7668 76.767V302.34H50.741V184.002L177.663 302.334h73.697L89.4198 151.366H201.196v-50.08h50.164V75.8783C251.36 34.1876 217.664.391 176.12.391Z"/>
   </g>
 
   <circle cx="180" cy="176" r="70" fill="url(#glowGradient)" opacity="0.45"/>
 
-  <rect x="120" y="300" width="120" height="36" rx="16" fill="url(#moveGradient)" stroke="${roleColor}" stroke-width="1.5" opacity="0.55"/>
-  <circle cx="135" cy="318" r="4" fill="${roleColor}" opacity="0.8"/>
-  <text x="180" y="322" font-family="Arial, sans-serif" font-size="12" font-weight="900" text-anchor="middle" fill="white" text-transform="uppercase" letter-spacing="0.28">${passport.primaryRole?.roleName}</text>
+  <rect x="${roleRectX}" y="${roleRectY}" width="${computedRoleWidth}" height="${roleRectHeight}" rx="${roleRectRadius}" fill="url(#moveGradient)" stroke="${roleColor}" stroke-width="1.5" opacity="0.55"/>
+  <text x="180" y="322" font-family="Arial, sans-serif" font-size="12" font-weight="900" text-anchor="middle" fill="white" text-transform="uppercase" letter-spacing="0.28">${primaryRoleName}</text>
+  <circle cx="${leftDotCx}" cy="${leftDotCy}" r="${
+    leftDotRadius + 1
+  }" fill="${roleColor}" stroke="#ffffff" stroke-width="2" opacity="1"/>
 
   <text x="180" y="360" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white" opacity="0.88">Digital Identity in the RISE Ecosystem</text>
 
@@ -64,7 +90,9 @@ export function generatePassportSVG(passport: PassportData): string {
 
   ${badgesHTML}
 
-  <text x="180" y="540" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.6">#${passport.discordId}</text>
+  <text x="180" y="540" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white" opacity="0.6">#${
+    passport.discordId
+  }</text>
 
   <rect x="4" y="4" width="352" height="552" rx="14" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.08"/>
 </svg>`;

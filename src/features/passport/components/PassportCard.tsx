@@ -3,24 +3,15 @@
 import { useState } from "react";
 import { WalletUpgradeModal } from "../../wallet";
 import styles from "./PassportCard.module.css";
-import {
-  DISCORD_ROLE_MAP,
-  RISE_SPECIAL_ROLES,
-  RISE_APP_BUILDER_ROLES,
-} from "../../../data/roles";
+import { FULL_ROLES_LIST } from "../../../data/roles";
 import { PassportCardProps } from "../types";
 import PassportTopBar from "./PassportTopBar";
 import PassportMedia from "./PassportMedia";
 import PassportRoleSection from "./PassportRoleSection";
 import PassportBadges from "./PassportBadges";
 
-// Fonction utilitaire pour trouver le rôle correspondant
 const findRoleData = (roleId: string) => {
-  const allRoles = [
-    ...DISCORD_ROLE_MAP,
-    ...RISE_SPECIAL_ROLES,
-    ...RISE_APP_BUILDER_ROLES,
-  ];
+  const allRoles = FULL_ROLES_LIST;
   return allRoles.find((role) => role.id === roleId);
 };
 

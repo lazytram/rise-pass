@@ -10,6 +10,7 @@ import { ethers } from "ethers";
 import { MintActionButton } from "../../mint-flow";
 import { StatusMessage } from "../../ui";
 import { useToastContext } from "../../ui/context/ToastContext";
+import { getDisplayName } from "@/lib/discordApi";
 
 interface MintButtonComponentProps extends MintButtonProps {
   noWrapper?: boolean;
@@ -73,7 +74,7 @@ export default function MintButton({
       const svg = generatePassportSVG({
         discordId,
         mintedAt: Math.floor(Date.now() / 1000),
-        username: discordUser?.username || "User",
+        username: getDisplayName(discordUser),
         primaryRole: {
           roleName: mappedRoles?.primary?.name || "",
           roleId: mappedRoles?.primary?.id || "",
@@ -81,9 +82,6 @@ export default function MintButton({
         },
         secondaryRoles: mappedRoles?.secondary || [],
       });
-
-      console.log("Frontend generated SVG length:", svg.length);
-      console.log("SVG starts with:", svg.substring(0, 100));
 
       // Mint passport
       const passportData = await passportService.mintPassport({

@@ -14,7 +14,6 @@ export default function PassportMedia({
       return url;
     }
 
-    // Si c'est un hash Discord, construire l'URL complète
     if (url && !url.includes("http")) {
       return `https://cdn.discordapp.com/avatars/${url}`;
     }
@@ -54,7 +53,6 @@ export default function PassportMedia({
               className="object-cover rounded-full"
               crossOrigin="anonymous"
               onError={(e) => {
-                // En cas d'erreur de chargement, utiliser l'image par défaut
                 const target = e.target as HTMLImageElement;
                 target.src = "/avatar-placeholder.svg";
               }}

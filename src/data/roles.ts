@@ -180,3 +180,9 @@ export const RISE_APP_BUILDER_ROLES: Array<Role> = [
     description: "The fastest DEX alive",
   },
 ];
+
+export const FULL_ROLES_LIST: Array<Role> = [
+  ...DISCORD_ROLE_MAP,
+  ...RISE_SPECIAL_ROLES,
+  ...RISE_APP_BUILDER_ROLES,
+];
