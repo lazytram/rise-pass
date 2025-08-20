@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" aria-labelledby="title desc" role="img">
+  <title id="title">RISE Passport Banner</title>
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7967e5"/>
+      <stop offset="50%" stop-color="#ffa0f2"/>
+      <stop offset="100%" stop-color="#ffc393"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+    <symbol id="riseLogo" viewBox="0 0 252 303">
+      <path d="M176.12.391H.5888v50.3245H176.12c13.848 0 25.076 11.2676 25.076 25.1628v25.1627H77.3556c-42.3973 0-76.7668 34.369-76.7668 76.767V302.34H50.741V184.002L177.663 302.334h73.697L89.4198 151.366H201.196v-50.08h50.164V75.8783C251.36 34.1876 217.664.391 176.12.391Z"/>
+    </symbol>
+    <!-- R glyph from public/Rise_Light Logotype.svg (first path only) -->
+    <symbol id="riseR" viewBox="0 0 128.909 155.608">
+      <path d="M90.232 0.391113H0V26.2604H90.232C97.3505 26.2604 103.122 32.0525 103.122 39.1954V52.1304H39.462C17.6676 52.1304 0 69.7977 0 91.5923V155.608H25.7807V94.7762L91.0249 155.605H128.909L45.6636 77.9997H103.122V52.2563H128.909V39.1954C128.909 17.7643 111.588 0.391113 90.232 0.391113Z" fill="#ffffff"/>
+    </symbol>
+    <!-- Full RISE logotype from public/Rise_Light Logotype.svg -->
+    <symbol id="riseLogotype" viewBox="0 0 450 156">
+      <path d="M90.232 0.391113H0V26.2604H90.232C97.3505 26.2604 103.122 32.0525 103.122 39.1954V52.1304H39.462C17.6676 52.1304 0 69.7977 0 91.5923V155.608H25.7807V94.7762L91.0249 155.605H128.909L45.6636 77.9997H103.122V52.2563H128.909V39.1954C128.909 17.7643 111.588 0.391113 90.232 0.391113Z" fill="#ffffff"/>
+      <path d="M173.626 0.391113H147.734V155.608H173.626V0.391113Z" fill="#ffffff"/>
+      <path d="M192.593 51.8245C192.593 73.2556 209.914 90.6287 231.27 90.6287H274.933C282.052 90.6287 287.823 96.4607 287.823 103.604L287.823 116.804C287.823 123.947 282.051 129.739 274.932 129.739H192.593V155.608H274.932C296.288 155.608 313.609 138.235 313.609 116.804L313.61 103.604C313.61 82.1731 296.289 64.7999 274.933 64.7999H231.27C224.151 64.7999 218.38 58.9679 218.38 51.8245L218.38 39.1954C218.38 32.0525 224.152 26.2604 231.271 26.2604H305.718V0.391113H231.271C209.915 0.391113 192.593 17.7643 192.593 39.1954L192.593 51.8245Z" fill="#ffffff"/>
+      <path d="M328.039 39.1954L328.038 52.2563H353.825L353.825 39.1954C353.825 32.0525 359.597 26.2604 366.716 26.2604H449.949V0.391113H366.716C345.36 0.391113 328.039 17.7643 328.039 39.1954Z" fill="#ffffff"/>
+      <path d="M367.609 64.7999H441.182V90.6287L367.609 90.6692C360.49 90.6692 354.719 96.4607 354.719 103.604L354.719 116.805C354.719 123.947 360.491 129.739 367.61 129.739H449.949V155.609H367.61C346.254 155.609 328.932 138.235 328.932 116.805L328.932 103.604C328.932 82.1724 346.253 64.7999 367.609 64.7999Z" fill="#ffffff"/>
+    </symbol>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="760" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3f34b3"/>
+      <stop offset="50%" stop-color="#7a2f79"/>
+      <stop offset="100%" stop-color="#b36b4b"/>
+    </linearGradient>
+    <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7967e5"/>
+      <stop offset="50%" stop-color="#ffa0f2"/>
+      <stop offset="100%" stop-color="#ffc393"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <g id="content" transform="translate(600,315)">
+    <!-- Passport-styled card -->
+    <g transform="translate(-380,-240)" filter="url(#softShadow)">
+      <rect x="0" y="0" width="760" height="480" rx="28" fill="url(#cardBg)"/>
+      <!-- subtle top gloss -->
+      <rect x="0" y="0" width="760" height="140" rx="28" fill="url(#accentGradient)"/>
+      <!-- left accent strip -->
+      <rect x="24" y="24" width="8" height="432" rx="4" fill="url(#ringGradient)" opacity="0.9"/>
+
+      <!-- Title -->
+      <g transform="translate(60,120)">
+        <g transform="translate(3,-50) scale(0.1)">
+          <use href="#riseLogotype" fill="#ffffff"/>
+        </g>
+        <text x="0" y="60" fill="#ffffff" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="2">PASSPORT</text>
+      </g>
+
+      <!-- Emblem -->
+      <g transform="translate(560,140)">
+        <circle cx="0" cy="0" r="86" fill="none" stroke="url(#ringGradient)" stroke-width="6"/>
+        <circle cx="0" cy="0" r="78" fill="rgba(255,255,255,0.06)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
+        <!-- Centered R glyph from Rise_Light Logotype.svg -->
+        <g transform="translate(-85,-45) scale(0.15)">
+          <use href="#riseR"/>
+        </g>
+      </g>
+
+      <!-- Info lines -->
+      <g transform="translate(60,240)" opacity="0.85">
+        <rect x="0" y="0" width="360" height="10" rx="5" fill="#ffffff" opacity="0.18"/>
+        <rect x="0" y="24" width="300" height="10" rx="5" fill="#ffffff" opacity="0.12"/>
+        <rect x="0" y="48" width="260" height="10" rx="5" fill="#ffffff" opacity="0.12"/>
+      </g>
+
+      <!-- MRZ-like area -->
+      <g transform="translate(40,390)" opacity="0.6">
+        <rect x="0" y="0" width="680" height="3" rx="1.5" fill="#ffffff"/>
+        <rect x="0" y="16" width="680" height="3" rx="1.5" fill="#ffffff"/>
+      </g>
+    </g>
+  </g>
+</svg>
