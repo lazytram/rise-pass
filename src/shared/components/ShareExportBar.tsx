@@ -116,15 +116,27 @@ export default function ShareExportBar({
 
   return (
     <div className="flex items-center gap-3" data-export-ignore>
-      <Button onClick={onExport} disabled={isWorking} className="gap-2">
+      <Button
+        onClick={onExport}
+        disabled={isWorking}
+        className="gap-2 px-6 py-3"
+      >
         {isWorking
           ? "Preparing…"
           : exportedFile
           ? "Re-export PNG"
           : "Export PNG"}
       </Button>
-      <Button onClick={onShare} variant="secondary" className="gap-2">
-        Share on X
+      <Button onClick={onShare} variant="secondary" className="gap-2 px-6 py-3">
+        Share on{" "}
+        <svg
+          className="w-4 h-4"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
       </Button>
     </div>
   );

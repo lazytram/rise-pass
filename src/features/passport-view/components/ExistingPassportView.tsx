@@ -67,7 +67,7 @@ export default function ExistingPassportView({
       </div>
 
       {/* Main Content Section */}
-      <div className="space-y-8">
+      <div className="space-y-8 mb-1">
         {/* Passport Card */}
         <div className="flex justify-center">
           <div id="passport-card">
@@ -84,10 +84,8 @@ export default function ExistingPassportView({
         </div>
 
         {/* Wallet Connection */}
-        <div className="flex justify-center">
-          <div className="inline-flex items-center px-4 py-3 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
-            <ConnectButton />
-          </div>
+        <div className="flex justify-center inline-flex items-center px-4 py-3 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm">
+          <ConnectButton />
         </div>
 
         {/* Action Buttons */}
