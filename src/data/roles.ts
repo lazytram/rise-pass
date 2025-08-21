@@ -118,7 +118,7 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     id: "1341763629875204217",
     name: "Poker Champ",
     color: "#fbdb27",
-    priority: 99,
+    priority: 30,
     description: "Poker is life",
   },
 ];
