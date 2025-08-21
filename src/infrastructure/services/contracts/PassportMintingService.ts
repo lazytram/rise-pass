@@ -149,7 +149,7 @@ export class PassportMintingService {
     const json = {
       name: `RISE Passport #${passportData.tokenId}`,
       description: `RISE Passport NFT - A digital identity token representing membership in the RISE community.\n\nThis soulbound token serves as proof of your role and contribution within the RISE ecosystem. Each passport is permanently linked to your Discord identity and cannot be transferred, ensuring authentic representation of your place in our community.\n\nRole: ${passportData.roleName}\n\nThis passport represents your unique contribution to the RISE community and serves as a permanent record of your membership.`,
-      image: `data:image/svg+xml;base64,${btoa(svgData)}`,
+      image: `data:image/svg+xml;base64,${this.base64Encode(svgData)}`,
       attributes: [
         { trait_type: "Role", value: passportData.roleName },
         { trait_type: "Discord ID", value: passportData.discordId },
@@ -160,6 +160,23 @@ export class PassportMintingService {
       background_color: "000000",
     };
 
-    return `data:application/json;base64,${btoa(JSON.stringify(json))}`;
+    return `data:application/json;base64,${this.base64Encode(
+      JSON.stringify(json)
+    )}`;
+  }
+
+  // Minimal mirror of generateTokenURI logic for testing in the browser
+  private base64Encode(data: string): string {
+    // Node.js environment (SSR) - prefer Buffer
+    if (typeof window === "undefined" && typeof Buffer !== "undefined") {
+      return Buffer.from(data, "utf8").toString("base64");
+    }
+
+    // Browser environment - UTF-8 safe using encodeURIComponent
+    return btoa(
+      encodeURIComponent(data).replace(/%([0-9A-F]{2})/g, (_, h) =>
+        String.fromCharCode(parseInt(h, 16))
+      )
+    );
   }
 }
