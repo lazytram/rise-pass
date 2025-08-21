@@ -102,8 +102,8 @@
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --rise-gradient: -webkit-linear-gradient(120deg, #7967e5 0%, #ffa0f2 50%, #ffc393 100%);
   --rise-purple: #7967e5;
   --rise-pink: #ffa0f2;
