@@ -2,6 +2,8 @@ import { fetchTotalPassports } from "@/infrastructure/services/contracts";
 import { GradientText } from "@/shared/components";
 import Card from "@/components/ui/Card";
 
+export const dynamic = "force-dynamic";
+
 export default async function InsightsPage() {
   const totalMinted = await fetchTotalPassports();
 
