@@ -1,12 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">RISE Avatar Placeholder</title>
+  <desc id="desc">On-brand gradient avatar placeholder with centered RISE glyph.</desc>
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#7967e5"/>
       <stop offset="50%" stop-color="#ffa0f2"/>
       <stop offset="100%" stop-color="#ffc393"/>
     </linearGradient>
+    <linearGradient id="ringGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="gloss" cx="0.25" cy="0.2" r="0.8">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <symbol id="riseR" viewBox="0 0 128.909 155.608">
+      <path d="M90.232 0.391113H0V26.2604H90.232C97.3505 26.2604 103.122 32.0525 103.122 39.1954V52.1304H39.462C17.6676 52.1304 0 69.7977 0 91.5923V155.608H25.7807V94.7762L91.0249 155.605H128.909L45.6636 77.9997H103.122V52.2563H128.909V39.1954C128.909 17.7643 111.588 0.391113 90.232 0.391113Z" fill="#ffffff"/>
+    </symbol>
   </defs>
-  <circle cx="64" cy="64" r="62" fill="url(#g)"/>
-  <circle cx="64" cy="54" r="22" fill="rgba(255,255,255,0.9)"/>
-  <path d="M24 112c6-22 26-34 40-34s34 12 40 34" fill="rgba(255,255,255,0.9)"/>
+  <!-- Background -->
+  <circle cx="64" cy="64" r="62" fill="url(#bgGradient)"/>
+  <!-- Subtle ring -->
+  <circle cx="64" cy="64" r="60" fill="none" stroke="url(#ringGradient)" stroke-width="1"/>
+  <!-- Soft gloss highlight -->
+  <circle cx="64" cy="64" r="62" fill="url(#gloss)"/>
+  <!-- Centered RISE glyph -->
+  <g transform="translate(35,30) scale(0.5) ">
+    <use href="#riseR"/>
+  </g>
 </svg>

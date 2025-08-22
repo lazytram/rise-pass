@@ -1,12 +1,25 @@
 import { riseTestnet } from "wagmi/chains";
 
+function getRpcUrl(): string {
+  // Prefer server-only env when available
+  const serverUrl = process.env.RPC_URL?.trim();
+  if (serverUrl) return serverUrl;
+
+  // Fallback to public env (only if you explicitly want to expose it)
+  const publicUrl = process.env.NEXT_PUBLIC_RPC_URL?.trim();
+  if (publicUrl) return publicUrl;
+
+  // Default from the chain definition
+  return riseTestnet.rpcUrls.default.http[0];
+}
+
 export const CONFIG = {
   APP_NAME: "RISE Passport",
   NETWORKS: {
     RISE_TESTNET: {
       id: riseTestnet.id,
       name: "Rise Testnet",
-      rpcUrl: riseTestnet.rpcUrls.default.http[0],
+      rpcUrl: getRpcUrl(),
       explorer: "https://explorer.testnet.riselabs.xyz",
     },
   },

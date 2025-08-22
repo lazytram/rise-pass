@@ -41,9 +41,11 @@ export default function RootLayout({
               <AnimatedBackground />
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 flex min-h-screen flex-col">
               <Navigation />
-              <div className="mx-auto max-w-5xl px-6 pt-16">{children}</div>
+              <main className="mx-auto max-w-5xl px-6 pt-16 flex-1">
+                {children}
+              </main>
               <Footer />
             </div>
 
