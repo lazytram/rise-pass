@@ -6,6 +6,11 @@ export type RoleCount = Record<string, number>;
 export type RoleLabels = Record<string, string>;
 export type CountsResult = { counts: RoleCount; labels: RoleLabels };
 
+const baseUrl = "https://explorer.testnet.riselabs.xyz/api";
+const baseUrlV2 = baseUrl.endsWith("/api")
+  ? baseUrl.replace(/\/api$/, "/api/v2")
+  : `${baseUrl}/v2`;
+
 export async function fetchTotalPassports(params?: {
   rpcUrl?: string;
   contractAddress?: string;
@@ -23,4 +28,25 @@ export async function fetchTotalPassports(params?: {
   );
   const totalSupply = await contract.totalSupply();
   return Number(totalSupply);
+}
+
+export async function fetchUniqueHolders(): Promise<number> {
+  const addr = getContractAddress();
+  if (!addr) return 0;
+  const contractAddress = addr.toLowerCase();
+
+  // Try Blockscout v2 counters first
+
+  const countersUrl = `${baseUrlV2}/tokens/${contractAddress}/counters`;
+  const countersRes = await fetch(countersUrl, {
+    headers: { accept: "application/json" },
+  });
+
+  const countersJson = (await countersRes.json()) as {
+    token_holders_count?: string;
+    transfers_count?: string;
+  };
+  const raw = countersJson?.token_holders_count ?? "";
+
+  return Number(raw);
 }
