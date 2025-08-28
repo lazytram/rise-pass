@@ -121,6 +121,13 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     priority: 30,
     description: "Poker is life",
   },
+  {
+    id: "1280094822992183338",
+    name: "Gold Digger",
+    color: "#f14d1c",
+    priority: 4,
+    description: "No one can stop you from digging for gold 💰",
+  },
 ];
 
 export const RISE_SPECIAL_ROLES: Array<Role> = [
