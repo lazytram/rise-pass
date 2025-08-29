@@ -22,6 +22,27 @@ export const DISCORD_ROLE_MAP: Array<Role> = [
     description: "Steamed, seasoned, and ready to rise 🍚",
   },
   {
+    id: "1328679008958939198",
+    name: "Sigma",
+    color: "#228238",
+    priority: 2.1,
+    description: "Sigma Sigma boy",
+  },
+  {
+    id: "1328678175323983905",
+    name: "Alpha",
+    color: "#bf4f22",
+    priority: 2.2,
+    description: "Alpha leads the pack",
+  },
+  {
+    id: "1328666375107117088",
+    name: "Giga Chad",
+    color: "#22bf47",
+    priority: 2.3,
+    description: "You brag about your muscles",
+  },
+  {
     id: "1281173780600983552",
     name: "Rice Contributor",
     color: "#ff8c3a",
